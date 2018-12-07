@@ -1,2 +1,2 @@
-# tales-from-the-crypt
+# tales-from-the-crypto
 Cryptocurrency charting tool
