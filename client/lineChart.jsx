@@ -9,44 +9,69 @@ class lineChart extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    console.log("Chart Comp: ",this.props.prices, this.props.data)
     this.createChart(this.props.prices,this.props.labels)
   }
   
   createChart = (prices,labels) => {
     let context = ReactDOM.findDOMNode(this.refs.lineChart).getContext("2d");
     Chart.defaults.global.defaultFontFamily = "Trebuchet MS"
-    Chart.defaults.global.defaultFontColor = "black"
+    Chart.defaults.global.defaultFontColor = "pink"
 
     new Chart(context, {
       type: 'line',
       data: {
         labels: labels,
         datasets: [{
-          label: "BPI in USD",
+          label: "BPI",
           data: prices,
           fill: false,
-          backgroundColor: "green",
-          pointBackgroundColor: "green",
+          borderColor: "pink",
+          borderWidth: 1,
+          pointRadius: 1,
+          backgroundColor: "pink",
+          pointBackgroundColor: "pink",
         }]
       },
       options: {
         title: {
           display: true,
-          text: "Crytocurrency",
+          text: "Value of Bitcoin",
           fontSize: 24
         },
         legend: {
           position: "left",
           labels: {
-            fontColor: "black"
+            fontColor: "pink"
           }
+        },
+        scales: {
+          yAxes: [{
+              ticks: {
+                  // Include a dollar sign in the ticks
+                  callback: function(value, index, values) {
+                      return '$' + value;
+                  }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Value in USD",
+                fontSize: 18
+              }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "Time",
+              fontSize: 18
+            }
+        }]
         }
       }
     } )
   }
 
   render(){
+    console.log(this.props, "PROPS")
     return (
       <React.Fragment>
         <canvas id="lineChart" ref="lineChart"></canvas>
