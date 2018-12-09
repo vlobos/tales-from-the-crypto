@@ -5,19 +5,31 @@ import ReactDOM from "react-dom";
 class lineChart extends React.Component{
   constructor(props){
     super(props);
+
   }
 
-  componentDidMount(){
-    this.createChart(this.props.sampleData)
+  componentDidUpdate(prevProps){
+    console.log("Chart Comp: ",this.props.prices, this.props.data)
+    this.createChart(this.props.prices,this.props.labels)
   }
-  createChart = (sampleData) => {
+  
+  createChart = (prices,labels) => {
     let context = ReactDOM.findDOMNode(this.refs.lineChart).getContext("2d");
-
     Chart.defaults.global.defaultFontFamily = "Trebuchet MS"
     Chart.defaults.global.defaultFontColor = "black"
+
     new Chart(context, {
       type: 'line',
-      data: sampleData,
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "BPI in USD",
+          data: prices,
+          fill: false,
+          backgroundColor: "green",
+          pointBackgroundColor: "green",
+        }]
+      },
       options: {
         title: {
           display: true,
@@ -44,3 +56,4 @@ class lineChart extends React.Component{
 }
 
 export default lineChart;
+
