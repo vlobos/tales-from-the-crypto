@@ -84,18 +84,18 @@ class App extends React.Component {
   render () {
     if(this.state.dateValid===false){
       return (
-        <div>
+        <React.Fragment>
           <LineChart prices={this.state.prices} labels={this.state.labels}/>
-          <div>INVALID DATE!</div>
+          <div className="date__error">INVALID DATE!</div>
           <DatePicker handleSubmitDates={this.handleSubmitDates}/>
-      </div>
+        </React.Fragment>
       )
     } else if (this.state.dateValid===true){
       return (
-        <div>
+        <React.Fragment>
           <LineChart prices={this.state.prices} labels={this.state.labels}/>
           <DatePicker handleSubmitDates={this.handleSubmitDates}/>
-        </div>
+        </React.Fragment>
       )
     }
   }

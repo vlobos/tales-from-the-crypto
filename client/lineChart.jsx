@@ -73,9 +73,9 @@ class lineChart extends React.Component{
   render(){
     console.log(this.props, "PROPS")
     return (
-      <React.Fragment>
+      <section id="main__chart">
         <canvas id="lineChart" ref="lineChart"></canvas>
-      </React.Fragment>
+      </section>
     )
   }
 }

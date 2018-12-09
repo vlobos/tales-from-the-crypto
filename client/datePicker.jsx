@@ -34,7 +34,7 @@ class DatePicker extends React.Component {
     let today = todayYear+"-"+todayMonth+"-"+todayDay
 
     return (
-      <section className="date__picker">
+      <section id="main__date">
         <div>
           <label className="date__label">Start date:</label>
           <input type="date" id="date__start" min="2010-07-17" max={yesterday}></input>
