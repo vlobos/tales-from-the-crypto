@@ -35,9 +35,9 @@ class App extends React.Component {
   getCurrencyData = (start, end) => {
     //min 2010-07-17
     //REAL URL:
-    //let url = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
+    let url = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
     //TEMP URL: 
-    let url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05"
+    //let url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05"
     fetch(url)
       .then((response)=>{
         return response.json()
@@ -61,13 +61,10 @@ class App extends React.Component {
   }
 
   handleSubmitDates = () => {
-    console.log("SUBMIT")
     let inputStartDate = document.getElementById("date__start").value;
     let inputEndDate = document.getElementById("date__end").value;
     let sDate = Date.parse(inputStartDate);
     let eDate = Date.parse(inputEndDate);
-    console.log("start: ", sDate)
-    console.log("end: ", eDate)
 
     if(sDate > eDate){
       this.setState({
@@ -87,15 +84,19 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <LineChart prices={this.state.prices} labels={this.state.labels}/>
-          <div className=" date__fullcol date__error">INVALID DATE!</div>
-          <DatePicker handleSubmitDates={this.handleSubmitDates}/>
+          <section id="main__date">
+            <div className=" date__fullcol date__error">INVALID DATE!</div>
+            <DatePicker handleSubmitDates={this.handleSubmitDates}/>
+          </section>
         </React.Fragment>
       )
     } else if (this.state.dateValid===true){
       return (
         <React.Fragment>
           <LineChart prices={this.state.prices} labels={this.state.labels}/>
-          <DatePicker handleSubmitDates={this.handleSubmitDates}/>
+          <section id="main__date">
+            <DatePicker handleSubmitDates={this.handleSubmitDates}/>
+          </section>
         </React.Fragment>
       )
     }
