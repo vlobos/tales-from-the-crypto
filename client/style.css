@@ -28,7 +28,8 @@ header {
 }
 
 #main__chart{
-  margin: 0 80px;
+  margin: auto;
+  width: 800px;
   border-radius: 5px;
   background: #e5e3e73d;
   padding: 10px
@@ -40,7 +41,7 @@ header {
   grid-template-rows: 1fr 1fr;
   justify-items: center;
   align-items: flex-end;
-  margin: 0 90px
+  margin: 0 170px
 }
 
 .date__div{
@@ -75,7 +76,7 @@ button{
 footer{
   font-size: 12px;
   text-align: right;
-  margin: 30px 0
+  margin: 30px
 }
 a, a:visited{
   color: RGB(219,167,106);
