@@ -35,15 +35,15 @@ class DatePicker extends React.Component {
 
     return (
       <section id="main__date">
-        <div>
+        <div className="date__col date__div">
           <label className="date__label">Start date:</label>
           <input type="date" id="date__start" min="2010-07-17" max={yesterday}></input>
         </div>
-        <div>
+        <div className="date__col date__div">
           <label className="date__label">End date:</label>
           <input type="date" id="date__end"  min="2010-07-17" max={today}></input>
         </div>
-        <div>
+        <div className="date__col date__div">
           <button onClick={this.props.handleSubmitDates}>Get Data</button>
         </div>
       </section>

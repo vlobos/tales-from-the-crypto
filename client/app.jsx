@@ -2,6 +2,7 @@ import React from "react";
 import LineChart from "./lineChart.jsx";
 import DatePicker from "./datePicker.jsx";
 import { runInThisContext } from "vm";
+import "./style.css"
 
 class App extends React.Component {
   constructor(){
@@ -34,9 +35,9 @@ class App extends React.Component {
   getCurrencyData = (start, end) => {
     //min 2010-07-17
     //REAL URL:
-    let url = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
+    //let url = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
     //TEMP URL: 
-   //let url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05"
+    let url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05"
     fetch(url)
       .then((response)=>{
         return response.json()
@@ -86,7 +87,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <LineChart prices={this.state.prices} labels={this.state.labels}/>
-          <div className="date__error">INVALID DATE!</div>
+          <div className=" date__fullcol date__error">INVALID DATE!</div>
           <DatePicker handleSubmitDates={this.handleSubmitDates}/>
         </React.Fragment>
       )

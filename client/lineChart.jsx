@@ -14,8 +14,8 @@ class lineChart extends React.Component{
   
   createChart = (prices,labels) => {
     let context = ReactDOM.findDOMNode(this.refs.lineChart).getContext("2d");
-    Chart.defaults.global.defaultFontFamily = "Trebuchet MS"
-    Chart.defaults.global.defaultFontColor = "pink"
+    Chart.defaults.global.defaultFontFamily = "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", "sans-serif";
+    Chart.defaults.global.defaultFontColor =  "rgb(255, 255, 255)";
 
     new Chart(context, {
       type: 'line',
@@ -25,23 +25,25 @@ class lineChart extends React.Component{
           label: "BPI",
           data: prices,
           fill: false,
-          borderColor: "pink",
+          borderColor:  "rgb(255, 255, 255)",
           borderWidth: 1,
           pointRadius: 1,
-          backgroundColor: "pink",
-          pointBackgroundColor: "pink",
+          backgroundColor:  "rgb(255, 255, 255)",
+          pointBackgroundColor:  "rgb(255, 255, 255)",
         }]
       },
       options: {
         title: {
           display: true,
           text: "Value of Bitcoin",
-          fontSize: 24
+          fontSize: 28,
+          fontStyle: "normal",
+          fontColor: "RGB(219,167,106)"
         },
         legend: {
-          position: "left",
+          position: "top",
           labels: {
-            fontColor: "pink"
+            fontColor: "RGB(219,167,106)"
           }
         },
         scales: {
@@ -55,14 +57,16 @@ class lineChart extends React.Component{
               scaleLabel: {
                 display: true,
                 labelString: "Value in USD",
-                fontSize: 18
+                fontSize: 18,
+                fontColor: "RGB(219,167,106)"
               }
           }],
           xAxes: [{
             scaleLabel: {
               display: true,
               labelString: "Time",
-              fontSize: 18
+              fontSize: 18,
+              fontColor: "RGB(219,167,106)"
             }
         }]
         }
@@ -71,7 +75,6 @@ class lineChart extends React.Component{
   }
 
   render(){
-    console.log(this.props, "PROPS")
     return (
       <section id="main__chart">
         <canvas id="lineChart" ref="lineChart"></canvas>
