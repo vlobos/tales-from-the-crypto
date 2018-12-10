@@ -29,7 +29,7 @@ header {
 
 #main__chart{
   margin: auto;
-  width: 800px;
+  width: 900px;
   border-radius: 5px;
   background: #e5e3e73d;
   padding: 10px
@@ -41,7 +41,7 @@ header {
   grid-template-rows: 1fr 1fr;
   justify-items: center;
   align-items: flex-end;
-  margin: 0 170px
+  margin: 0 200px
 }
 
 .date__div{
